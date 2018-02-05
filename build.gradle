@@ -1,0 +1,46 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+// Define versions in a single place
+ext {
+    // Support library and architecture components support minSdk 19 and above.
+    minSdkVersion = 19
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    versionCode = 1
+    versionName = '1.0'
+
+    // App dependencies
+    supportLibraryVersion = '26.1.0'
+    junitVersion = '4.12'
+}
