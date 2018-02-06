@@ -1,12 +1,12 @@
-package com.cct.gridproject_android.base.api;
+package com.yjn.blog.base.api;
 
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.SparseArray;
 
-import com.cct.gridproject_android.app.MyApplication;
-import com.qzb.common.util.NetWorkUtils;
+import com.yjn.blog.MyApplication;
+import com.yjn.common.util.NetWorkUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,9 +24,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * des:retorfit api
- * Created by xsf
- * on 2016.06.15:47
+ * @author yang.jianan
+ * @date 2018/02/06 09:26.
+ * Desc：Retorfit Api
  */
 public class Api {
     //读超时长，单位：毫秒
@@ -125,8 +125,8 @@ public class Api {
     public static ApiService getDefault(int hostType) {
         Api retrofitManager = sRetrofitManager.get(hostType);
         if (retrofitManager == null) {
-                retrofitManager = new Api(hostType);
-                sRetrofitManager.put(hostType, retrofitManager);
+            retrofitManager = new Api(hostType);
+            sRetrofitManager.put(hostType, retrofitManager);
         }
         return retrofitManager.movieService;
     }

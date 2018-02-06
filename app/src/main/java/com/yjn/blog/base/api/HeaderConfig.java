@@ -1,14 +1,17 @@
-package com.cct.gridproject_android.base.api;
+package com.yjn.blog.base.api;
 
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.cct.gridproject_android.app.MyApplication;
-import com.qzb.common.util.ToastUtil;
-import com.qzb.common.util.Util;
+import com.yjn.blog.MyApplication;
+import com.yjn.common.util.ToastUtil;
+import com.yjn.common.util.Util;
+
 
 /**
- * Created by QinZB on 2017/12/12.
+ * @author yang.jianan
+ * @date 2018/02/06 09:26.
+ * Desc：请求头配置
  */
 
 public class HeaderConfig {

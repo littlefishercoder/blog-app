@@ -1,4 +1,4 @@
-package com.cct.gridproject_android.base.annotation.sqlite;
+package com.yjn.blog.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

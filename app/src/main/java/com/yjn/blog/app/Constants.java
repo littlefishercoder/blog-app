@@ -7,4 +7,5 @@ package com.yjn.blog.app;
  */
 
 public class Constants {
+    public static final String SUCCESS = "SUCCESS";
 }

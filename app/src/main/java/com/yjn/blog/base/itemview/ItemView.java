@@ -1,9 +1,9 @@
-package com.cct.gridproject_android.base.itemview;
+package com.yjn.blog.base.itemview;
 
 import android.os.Bundle;
 
-import com.cct.gridproject_android.base.adapter.ItemAdapter;
-import com.cct.gridproject_android.base.item.Item;
+import com.yjn.blog.base.adapter.ItemAdapter;
+import com.yjn.blog.base.item.Item;
 
 
 public interface ItemView {

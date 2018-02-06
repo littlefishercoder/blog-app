@@ -14,8 +14,13 @@
  * limitations under the License.
  *
  */
-package com.cct.gridproject_android.base.api;
+package com.yjn.blog.base.api;
 
+/**
+ * @author yang.jianan
+ * @date 2018/02/06 09:26.
+ * Desc：请求类型
+ */
 public class HostType {
 
     /**

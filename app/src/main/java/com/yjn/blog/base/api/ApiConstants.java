@@ -1,14 +1,16 @@
-package com.cct.gridproject_android.base.api;
+package com.yjn.blog.base.api;
 
 /**
- * Created by QinZB on 2017/9/3.
+ * @author yang.jianan
+ * @date 2018/02/06 09:26.
+ * Desc：Api 常量
  */
 
 public class ApiConstants {
 
     public static final String BAIDU_HOST = "http://www.baidu.com/";
     public static final String ID_CARD_HOST = "api.youtu.qq.com/";
-    public static final String APP_HOST = "http://220.194.101.68:18002/";
+    public static final String APP_HOST = "http://swagger.littlefisher.site:8088/blog-web/";
 
     /**
      * 获取对应的host

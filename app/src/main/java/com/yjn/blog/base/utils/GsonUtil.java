@@ -1,9 +1,11 @@
-package com.cct.gridproject_android.base.utils;
+package com.yjn.blog.base.utils;
 
 import com.google.gson.Gson;
 
 /**
- * Created by QinZB on 2017/12/13.
+ * @author yang.jianan
+ * @date 2018/02/06 09:26.
+ * Desc：Gson工具
  */
 
 public class GsonUtil {

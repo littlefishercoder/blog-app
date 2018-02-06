@@ -1,16 +1,14 @@
-package com.cct.gridproject_android.base.item;
+package com.yjn.blog.base.item;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.cct.gridproject_android.base.annotation.sqlite.Transient;
-import com.cct.gridproject_android.base.itemview.ItemView;
+import com.yjn.blog.annotation.Transient;
+import com.yjn.blog.base.itemview.ItemView;
 
 import java.io.Serializable;
 import java.util.HashMap;
-
-//import com.emww.component.db.annotation.Transient;
 
 public abstract class Item implements Serializable {
 

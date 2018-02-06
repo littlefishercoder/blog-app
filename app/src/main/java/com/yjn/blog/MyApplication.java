@@ -9,4 +9,8 @@ import com.yjn.common.baseapp.BaseApplication;
  */
 
 public class MyApplication extends BaseApplication {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
 }

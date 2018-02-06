@@ -1,4 +1,4 @@
-package com.cct.gridproject_android.base.adapter;
+package com.yjn.blog.base.adapter;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,10 +11,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.cct.gridproject_android.base.item.FuckListItem;
-import com.cct.gridproject_android.base.item.Item;
-import com.cct.gridproject_android.base.itemview.ItemView;
-import com.qzb.common.util.ToastUtil;
+import com.yjn.blog.base.item.Item;
+import com.yjn.blog.base.itemview.ItemView;
+import com.yjn.common.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -383,19 +382,7 @@ public class ItemAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Item item = (Item) getItem(position);
-//        if (item == null){
-//            return null;
-//        }
-        //建议判空item
-
-        if (item instanceof FuckListItem) {
-            FuckListItem fuckListItem = (FuckListItem) item;
-            if (!fuckListItem.isShow()) {
-                return new View(mContext);
-            }
-        }
-
+        Item item = getItem(position);
 
         ItemView itemView;
         if (convertView != null && convertView.getTag() != null && Integer.valueOf(convertView.getTag().toString()) == item.getItemLayoutId()) {
@@ -407,11 +394,6 @@ public class ItemAdapter extends BaseAdapter {
             convertView.setTag(item.getItemLayoutId());
         }
 
-//		if (onItemSmoothListener != null){
-//			((View) itemView).setTag(R.id.itemadapter_smooth_id, onItemSmoothListener);
-//		}
-
-//        item.setItemView(itemView);
         // 绑定数据
         itemView.setObject(item, position, onViewClickListener);
 
