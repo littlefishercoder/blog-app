@@ -33,14 +33,21 @@ task clean(type: Delete) {
 
 // Define versions in a single place
 ext {
-    // Support library and architecture components support minSdk 19 and above.
-    minSdkVersion = 19
+/*    minSdkVersion = 19
     targetSdkVersion = 26
     compileSdkVersion = 26
     versionCode = 1
-    versionName = '1.0'
+    versionName = '1.0'*/
 
-    // App dependencies
-    supportLibraryVersion = '26.1.0'
+    // 版本号相关
+    versionCode = 1;
+    versionName = '1.0.0'
+
+    // 相关依赖库版本
+    supportVersion = '27.1.1'
+    constraintLayout = '1.0.2'
     junitVersion = '4.12'
+    butterknifeVersion = '8.5.1'
+    geniusVersion = '2.0.0'
+    glideVersion = '3.7.0'
 }

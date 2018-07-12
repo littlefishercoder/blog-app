@@ -21,6 +21,8 @@ import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.lang.ref.WeakReference;
 
+import butterknife.ButterKnife;
+
 
 /**
  * 基类
@@ -89,6 +91,8 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         if (mPresenter != null) {
             mPresenter.mContext = this;
         }
+
+        ButterKnife.bind(this);
         this.initPresenter();
         this.initView();
 

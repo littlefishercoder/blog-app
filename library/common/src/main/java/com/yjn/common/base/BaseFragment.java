@@ -14,6 +14,8 @@ import com.yjn.common.baserx.RxManager;
 import com.yjn.common.util.TUtil;
 import com.yjn.common.util.ToastUtil;
 
+import butterknife.ButterKnife;
+
 
 /**
  * des:基类fragment
@@ -71,6 +73,7 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
         if (mPresenter != null) {
             mPresenter.mContext = this.getActivity();
         }
+        ButterKnife.bind(this, rootView);
         initPresenter();
         initView();
         return rootView;
