@@ -66,6 +66,9 @@ dependencies {
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 
+    // 仿 ios loading
+    api 'com.kaopiz:kprogresshud:1.2.0'
+
     //语言库
     compile project(':library:lang')
 }

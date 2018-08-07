@@ -3,6 +3,7 @@ package com.yjn.common.base;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.yjn.common.baserx.RxManager;
 import com.yjn.common.util.TUtil;
 import com.yjn.common.util.ToastUtil;
@@ -60,23 +62,50 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
     public T mPresenter;
     public E mModel;
     public RxManager mRxManager;
-//    private Unbinder unbinder;
+    public Context mContext;
+    public KProgressHUD dialog;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (rootView == null) rootView = inflater.inflate(getLayoutResource(), container, false);
         mRxManager = new RxManager();
-//        unbinder = ButterKnife.bind(this, rootView);
         mPresenter = TUtil.getT(this, 0);
         mModel = TUtil.getT(this, 1);
+        mContext = getActivity();
         if (mPresenter != null) {
             mPresenter.mContext = this.getActivity();
         }
         ButterKnife.bind(this, rootView);
         initPresenter();
         initView();
+        initLoading();
         return rootView;
+    }
+
+    /**
+     * 初始化 Loading
+     */
+    private void initLoading() {
+        dialog = KProgressHUD.create(mContext)
+                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                //.setLabel("Please wait")
+                .setCancellable(false);
+    }
+
+    /**
+     * 隐藏 Loading
+     */
+    public void dialogDismiss() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+            }
+        }, 2000);
     }
 
     //获取布局文件
@@ -145,7 +174,6 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        unbinder.unbind();
         if (mPresenter != null) mPresenter.onDestroy();
         if (mRxManager != null) mRxManager.clear();
     }

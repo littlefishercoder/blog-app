@@ -1,9 +1,9 @@
-package com.yjn.blog;
+package com.yjn.blog.actys;
 
 import android.content.Context;
 import android.content.Intent;
 
-import com.yjn.blog.actys.AccountActivity;
+import com.yjn.blog.R;
 import com.yjn.common.base.BaseActivity;
 
 public class MainActivity extends BaseActivity {

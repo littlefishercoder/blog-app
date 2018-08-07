@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.yjn.common.R;
 import com.yjn.common.baserx.RxManager;
 import com.yjn.common.util.TUtil;
@@ -70,6 +71,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     protected boolean isFinished = false;
     //    private Unbinder unbinder;
     private ImmersionBar mImmersionBar;
+    public KProgressHUD dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,6 +98,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         this.initPresenter();
         this.initView();
 
+        initLoading();
     }
 
     protected void setStatusBar() {
@@ -122,6 +125,31 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // 竖屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    /**
+     * 初始化 Loading
+     */
+    private void initLoading() {
+        dialog = KProgressHUD.create(mContext)
+                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                //.setLabel("Please wait")
+                .setCancellable(false);
+    }
+
+    /**
+     * 隐藏 Loading
+     */
+    public void dialogDismiss() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+            }
+        }, 2000);
     }
 
     /*********************子类实现*****************************/
