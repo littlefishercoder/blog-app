@@ -78,8 +78,8 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
         }
         ButterKnife.bind(this, rootView);
         initPresenter();
-        initView();
         initLoading();
+        initView();
         return rootView;
     }
 
